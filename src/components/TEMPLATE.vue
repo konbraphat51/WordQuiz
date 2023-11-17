@@ -5,6 +5,8 @@
         <button id="example" @click="select('example')">{{ t("Example.button") }}</button>
 
         <SUB_COMPONENT :sub_component_props_name:"example_parameter"/>
+
+        <SOMETHING v-for="example in example_list" :key="example.id" :example_props_name="example">
     </div> -->
 </template>
 
@@ -69,18 +71,18 @@ export default Vue.defineComponent({
 </script>
 
 <i18n>
-    {
-        "en": {
-            "Example": {
-                "button": "example"
-            }
-        },
-        "ja": {
-            "Example": {
-                "button": "例"
-            }
-        }
-    }
+    //{
+    //    "en": {
+    //        "Example": {
+    //            "button": "example"
+    //        }
+    //    },
+    //    "ja": {
+    //        "Example": {
+    //            "button": "例"
+    //        }
+    //    }
+    //}
 </i18n>
 
 <style>
