@@ -4,7 +4,7 @@
 
         <button id="example" @click="select('example')">{{ t("Example.button") }}</button>
 
-        <SUB_COMPONENT :sub_component_props_name:"example_parameter"/>
+        <SUB_COMPONENT :sub_component_props_name:"example_parameter" @event_name="function_name()"/>
 
         <SOMETHING v-for="example in example_list" :key="example.id" :example_props_name="example">
     </div> -->

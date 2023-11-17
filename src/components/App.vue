@@ -1,6 +1,16 @@
 <template>
-    <LanguageSelection />
-    {{ t("example.explain") }}
+    <div id="app">
+
+        <button @click="$router.push('/')">First Page</button>
+        <button @click="$router.push('/second')">Second Page</button>
+
+        <LanguageSelection />
+
+        {{ t("example.explain") }}
+
+        <!-- view page shown here -->
+        <router-view />
+    </div>
 </template>
 
 <script>
