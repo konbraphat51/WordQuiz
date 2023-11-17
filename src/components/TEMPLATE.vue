@@ -71,18 +71,18 @@ export default Vue.defineComponent({
 </script>
 
 <i18n>
-    //{
-    //    "en": {
-    //        "Example": {
-    //            "button": "example"
-    //        }
-    //    },
-    //    "ja": {
-    //        "Example": {
-    //            "button": "例"
-    //        }
-    //    }
-    //}
+    {
+        "en": {
+            "Example": {
+                "button": "example"
+            }
+        },
+        "ja": {
+            "Example": {
+                "button": "例"
+            }
+        }
+    }
 </i18n>
 
 <style>
