@@ -4,6 +4,13 @@
 
 		<div id="Accuracy">Accuracy: {{ accuracy }}</div>
 
+		<div id="Downloads">
+			<button @click="DownLoadCsv(correct, 'correct.csv')">
+				Download correct
+			</button>
+			<button @click="DownLoadCsv(wrong, 'wrong.csv')">Download wrong</button>
+		</div>
+
 		<div id="MissTable">
 			<h2>Mistook words</h2>
 			<table>
@@ -31,12 +38,27 @@ export default {
 	data() {
 		return {
 			accuracy: 0,
+			correct: [],
 			wrong: [],
 		}
 	},
 	mounted() {
 		this.accuracy = correct.length / (correct.length + wrong.length)
+		this.correct = correct
 		this.wrong = wrong
+	},
+	methods: {
+		DownLoadCsv(arrayData, filename) {
+			const array = arrayData
+			const csv = array.map((row) => row.join(",")).join("\n")
+			const blob = new Blob([csv], {type: "text/csv"})
+			const url = window.URL.createObjectURL(blob)
+			const a = document.createElement("a")
+			a.download = filename
+			a.href = url
+			a.click()
+			window.URL.revokeObjectURL(url)
+		},
 	},
 }
 </script>
