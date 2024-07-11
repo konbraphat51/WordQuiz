@@ -11,6 +11,8 @@
 		<div id="Answer" v-if="showingAnswer">
 			{{ answer }}
 		</div>
+
+		<button id="Next" @click="GotoNextWord" v-if="showingAnswer">Next</button>
 	</div>
 </template>
 
@@ -52,6 +54,10 @@ export default {
 		GotoNextWord() {
 			this.index++
 			this.showingAnswer = false
+
+			if (this.index >= this.quizQueue.length) {
+				this.$router.push("Result")
+			}
 		},
 	},
 	computed: {
