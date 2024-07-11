@@ -25,7 +25,6 @@ export default Vue.defineComponent({
 	methods: {
 		Reset() {
 			this.$router.push("/")
-			window.location.reload(true)
 		},
 	},
 })
