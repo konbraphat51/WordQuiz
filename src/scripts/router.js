@@ -16,5 +16,12 @@ const router = VueRouter.createRouter({
 				loadModule("src/components/Pages/QuizPage.vue", options),
 			),
 		},
+		{
+			path: "/result",
+			name: "ResultPage",
+			component: Vue.defineAsyncComponent(() =>
+				loadModule("src/components/Pages/ResultPage.vue", options),
+			),
+		},
 	],
 })

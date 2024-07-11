@@ -57,7 +57,7 @@ export default {
 			this.showingAnswer = false
 
 			if (this.index >= this.quizQueue.length) {
-				this.$router.push("Result")
+				this.$router.push("result")
 			}
 		},
 	},
