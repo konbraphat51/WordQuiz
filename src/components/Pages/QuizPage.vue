@@ -7,6 +7,10 @@
 
 		<button id="Good" @click="OnGood" v-if="!showingAnswer">Good</button>
 		<button id="Bad" @click="OnBad" v-if="!showingAnswer">Bad</button>
+
+		<div id="Answer" v-if="showingAnswer">
+			{{ answer }}
+		</div>
 	</div>
 </template>
 
@@ -54,6 +58,13 @@ export default {
 		currentWord() {
 			if (this.index < this.quizQueue.length) {
 				return this.quizQueue[this.index][0]
+			} else {
+				return "..."
+			}
+		},
+		answer() {
+			if (this.index < this.quizQueue.length) {
+				return this.quizQueue[this.index][1]
 			} else {
 				return "..."
 			}
