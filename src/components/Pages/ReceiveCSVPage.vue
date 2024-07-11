@@ -3,6 +3,8 @@
 		<h1>
 			{{ t("ReceiveCSVPage.Upload") }}
 		</h1>
+
+		<input id="CsvInputField" type="file" accept=".csv" />
 	</div>
 </template>
 
@@ -31,3 +33,18 @@ export default {
         }
     }
 </i18n>
+
+<style scoped>
+#CsvInputField {
+	margin-top: 20px;
+	width: 100%;
+	height: 500px;
+	font-size: 20px;
+	text-align: center;
+	border: 2px solid #000;
+	border-radius: 5px;
+	background-color: #f0f0f0;
+	color: #000;
+	cursor: pointer;
+}
+</style>
