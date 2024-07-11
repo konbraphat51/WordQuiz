@@ -1,5 +1,7 @@
 <template>
 	<div id="app">
+		<button @click="$router.push('/')">reset</button>
+
 		<LanguageSelection />
 
 		<!-- view page shown here -->
