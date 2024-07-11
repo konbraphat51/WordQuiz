@@ -34,23 +34,7 @@ export default {
 		correct = []
 		wrong = []
 
-		document.addEventListener("keydown", (e) => {
-			const key = e.code
-
-			//f
-			if (key === "KeyF" && !this.showingAnswer) {
-				this.OnGood()
-			}
-			//j
-			if (key === "KeyJ" && !this.showingAnswer) {
-				this.OnBad()
-			}
-			//space
-			if (key === "Space" && this.showingAnswer) {
-				console.log("Space")
-				this.GotoNextWord()
-			}
-		})
+		document.addEventListener("keydown", this.GetKey)
 	},
 	methods: {
 		ShuffleArray(array) {
@@ -75,7 +59,27 @@ export default {
 			this.showingAnswer = false
 
 			if (this.index >= this.quizQueue.length) {
+				document.removeEventListener("keydown", this.GetKey)
+
 				this.$router.push("result")
+			}
+		},
+
+		GetKey(e) {
+			const key = e.code
+
+			//f
+			if (key === "KeyF" && !this.showingAnswer) {
+				this.OnGood()
+			}
+			//j
+			if (key === "KeyJ" && !this.showingAnswer) {
+				this.OnBad()
+			}
+			//space
+			if (key === "Space" && this.showingAnswer) {
+				console.log("Space")
+				this.GotoNextWord()
 			}
 		},
 	},
