@@ -10,10 +10,10 @@ const router = VueRouter.createRouter({
 			), //default page
 		},
 		{
-			path: "/second",
-			name: "SecondPage",
+			path: "/quiz",
+			name: "QuizPage",
 			component: Vue.defineAsyncComponent(() =>
-				loadModule("src/components/Pages/SecondPage.vue", options),
+				loadModule("src/components/Pages/QuizPage.vue", options),
 			),
 		},
 	],
