@@ -1,11 +1,6 @@
 <template>
 	<div id="app">
-		<button @click="$router.push('/')">First Page</button>
-		<button @click="$router.push('/second')">Second Page</button>
-
 		<LanguageSelection />
-
-		{{ t("example.explain") }}
 
 		<!-- view page shown here -->
 		<router-view />
@@ -27,18 +22,3 @@ export default Vue.defineComponent({
 	},
 })
 </script>
-
-<i18n>
-    {
-        "en": {
-            "example": {
-                "explain": "This is how you use i18n"
-            }
-        },
-        "ja": {
-            "example": {
-                "explain": "こうやってi18nを使います"
-            }
-        }
-    }
-</i18n>
