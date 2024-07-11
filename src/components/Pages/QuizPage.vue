@@ -79,3 +79,38 @@ export default {
 	},
 }
 </script>
+
+<style scoped>
+#WordCurrent {
+	font-size: 100px;
+}
+
+#Answer {
+	font-size: 50px;
+}
+
+#Good {
+	background-color: green;
+	color: white;
+	font-size: 50px;
+	position: absolute;
+	left: 0;
+	width: 40%;
+}
+
+#Bad {
+	background-color: red;
+	color: white;
+	font-size: 50px;
+	position: absolute;
+	right: 0;
+	width: 40%;
+}
+
+#Next {
+	background-color: blue;
+	color: white;
+	font-size: 50px;
+	width: 100%;
+}
+</style>
