@@ -22,8 +22,6 @@ export default {
 	data() {
 		return {
 			quizQueue: [],
-			correct: [],
-			wrong: [],
 			index: 0,
 			showingAnswer: false,
 		}
@@ -32,6 +30,9 @@ export default {
 		//shuffle data
 		this.ShuffleArray(originalData)
 		this.quizQueue = originalData
+
+		correct = []
+		wrong = []
 	},
 	methods: {
 		ShuffleArray(array) {
@@ -42,12 +43,12 @@ export default {
 		},
 
 		OnGood() {
-			this.correct.push(this.quizQueue[this.index])
+			correct.push(this.quizQueue[this.index])
 			this.showingAnswer = true
 		},
 
 		OnBad() {
-			this.wrong.push(this.quizQueue[this.index])
+			wrong.push(this.quizQueue[this.index])
 			this.showingAnswer = true
 		},
 
