@@ -1,5 +1,5 @@
 <template>
-	<div id="page">
+	<div id="page" ref="page">
 		<h1>Quiz</h1>
 		<div id="WordCurrent">
 			{{ currentWord }}
@@ -33,6 +33,24 @@ export default {
 
 		correct = []
 		wrong = []
+
+		document.addEventListener("keydown", (e) => {
+			const key = e.code
+
+			//f
+			if (key === "KeyF" && !this.showingAnswer) {
+				this.OnGood()
+			}
+			//j
+			if (key === "KeyJ" && !this.showingAnswer) {
+				this.OnBad()
+			}
+			//space
+			if (key === "Space" && this.showingAnswer) {
+				console.log("Space")
+				this.GotoNextWord()
+			}
+		})
 	},
 	methods: {
 		ShuffleArray(array) {
