@@ -34,6 +34,11 @@ export default {
 
 			for (let cnt = 0; cnt < lines.length; cnt++) {
 				const line = lines[cnt]
+				if (line === "") {
+					//skip empty lines
+					continue
+				}
+
 				const columns = line.split(",")
 
 				originalData.push(columns)
