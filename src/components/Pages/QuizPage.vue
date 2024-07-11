@@ -4,6 +4,9 @@
 		<div id="WordCurrent">
 			{{ currentWord }}
 		</div>
+
+		<button id="Good" @click="OnGood" v-if="!showingAnswer">Good</button>
+		<button id="Bad" @click="OnBad" v-if="!showingAnswer">Bad</button>
 	</div>
 </template>
 
@@ -16,6 +19,7 @@ export default {
 			correct: [],
 			wrong: [],
 			index: 0,
+			showingAnswer: false,
 		}
 	},
 	mounted() {
@@ -29,6 +33,21 @@ export default {
 				const j = Math.floor(Math.random() * (i + 1))
 				;[array[i], array[j]] = [array[j], array[i]]
 			}
+		},
+
+		OnGood() {
+			this.correct.push(this.quizQueue[this.index])
+			this.showingAnswer = true
+		},
+
+		OnBad() {
+			this.wrong.push(this.quizQueue[this.index])
+			this.showingAnswer = true
+		},
+
+		GotoNextWord() {
+			this.index++
+			this.showingAnswer = false
 		},
 	},
 	computed: {
