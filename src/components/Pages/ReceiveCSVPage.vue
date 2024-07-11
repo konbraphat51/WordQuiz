@@ -1,6 +1,8 @@
 <template>
 	<div id="page">
-		<h1></h1>
+		<h1>
+			{{ t("ReceiveCSVPage.Upload") }}
+		</h1>
 	</div>
 </template>
 
@@ -14,3 +16,18 @@ export default {
 	},
 }
 </script>
+
+<i18n>
+    {
+        "en": {
+            "ReceiveCSVPage": {
+                "Upload": "Upload CSV"
+            }
+        },
+        "ja": {
+            "ReceiveCSVPage": {
+                "Upload": "CSVをアップロード"
+            }
+        }
+    }
+</i18n>
