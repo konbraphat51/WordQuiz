@@ -23,7 +23,7 @@ export default {
 			reader.onload = (e) => {
 				const csv = e.target.result
 				this.ResolveData(csv)
-				this.$router.push("QuizPage")
+				this.$router.push("Quiz")
 			}
 			reader.readAsText(file)
 		},
