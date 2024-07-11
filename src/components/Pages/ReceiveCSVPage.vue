@@ -4,7 +4,7 @@
 			{{ t("ReceiveCSVPage.Upload") }}
 		</h1>
 
-		<input id="CsvInputField" type="file" accept=".csv" />
+		<input id="CsvInputField" type="file" accept=".csv" @change="OnUploaded" />
 	</div>
 </template>
 
@@ -15,6 +15,29 @@ export default {
 		//set up i18n
 		const {t} = VueI18n.useI18n()
 		return {t}
+	},
+	methods: {
+		OnUploaded(event) {
+			const file = event.target.files[0]
+			const reader = new FileReader()
+			reader.onload = (e) => {
+				const csv = e.target.result
+				this.ResolveData(csv)
+			}
+			reader.readAsText(file)
+		},
+		ResolveData(csvText) {
+			originalData = []
+
+			const lines = csvText.split("\n")
+
+			for (let cnt = 0; cnt < lines.length; cnt++) {
+				const line = lines[cnt]
+				const columns = line.split(",")
+
+				originalData.push(columns)
+			}
+		},
 	},
 }
 </script>
