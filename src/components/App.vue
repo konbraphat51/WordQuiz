@@ -22,5 +22,11 @@ export default Vue.defineComponent({
 		const {t} = VueI18n.useI18n()
 		return {t}
 	},
+	methods: {
+		Reset() {
+			this.$router.push("/")
+			location.reload()
+		},
+	},
 })
 </script>
