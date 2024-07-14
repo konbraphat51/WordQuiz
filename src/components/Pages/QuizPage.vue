@@ -36,6 +36,9 @@ export default {
 
 		document.addEventListener("keydown", this.GetKey)
 	},
+	beforeDestroy() {
+		document.removeEventListener("keydown", this.GetKey)
+	},
 	methods: {
 		ShuffleArray(array) {
 			for (let i = array.length - 1; i > 0; i--) {
@@ -59,8 +62,6 @@ export default {
 			this.showingAnswer = false
 
 			if (this.index >= this.quizQueue.length) {
-				document.removeEventListener("keydown", this.GetKey)
-
 				this.$router.push("result")
 			}
 		},
