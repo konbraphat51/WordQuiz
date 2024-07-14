@@ -5,14 +5,14 @@
 			{{ currentWord }}
 		</div>
 
-		<button id="Good" @click="OnGood" v-if="!showingAnswer">Good</button>
-		<button id="Bad" @click="OnBad" v-if="!showingAnswer">Bad</button>
+		<button id="Show" @click="ShowAnswer" v-if="!showingAnswer">Show</button>
 
 		<div id="Answer" v-if="showingAnswer">
 			{{ answer }}
 		</div>
 
-		<button id="Next" @click="GotoNextWord" v-if="showingAnswer">Next</button>
+		<button id="Good" @click="OnGood" v-if="showingAnswer">Good</button>
+		<button id="Bad" @click="OnBad" v-if="showingAnswer">Bad</button>
 	</div>
 </template>
 
@@ -47,14 +47,18 @@ export default {
 			}
 		},
 
+		ShowAnswer() {
+			this.showingAnswer = true
+		},
+
 		OnGood() {
 			correct.push(this.quizQueue[this.index])
-			this.showingAnswer = true
+			this.GotoNextWord()
 		},
 
 		OnBad() {
 			wrong.push(this.quizQueue[this.index])
-			this.showingAnswer = true
+			this.GotoNextWord()
 		},
 
 		GotoNextWord() {
@@ -69,18 +73,20 @@ export default {
 		GetKey(e) {
 			const key = e.code
 
+			//space
+			if (key === "Space" && !this.showingAnswer) {
+				console.log("Space")
+				this.ShowAnswer()
+			}
+
 			//f
-			if (key === "KeyF" && !this.showingAnswer) {
+			if (key === "KeyF" && this.showingAnswer) {
 				this.OnGood()
 			}
+
 			//j
-			if (key === "KeyJ" && !this.showingAnswer) {
+			if (key === "KeyJ" && this.showingAnswer) {
 				this.OnBad()
-			}
-			//space
-			if (key === "Space" && this.showingAnswer) {
-				console.log("Space")
-				this.GotoNextWord()
 			}
 		},
 	},
