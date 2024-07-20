@@ -145,7 +145,7 @@ export default {
 	width: 40%;
 }
 
-#Next {
+#Show {
 	background-color: blue;
 	color: white;
 	font-size: 50px;
