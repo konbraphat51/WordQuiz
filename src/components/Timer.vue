@@ -40,6 +40,9 @@ export default {
                 this.danger = false
             }
         },
+        ResetTime() {
+            this.timeStart = Date.now()
+        }
     },
     watch: {
         danger(newValue) {

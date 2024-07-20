@@ -1,7 +1,7 @@
 <template>
 	<div id="page" ref="page">
 		<h1>Quiz</h1>
-		<Timer />
+		<Timer ref="Timer"/>
 
 		<div id="WordCurrent">
 			{{ currentWord }}
@@ -71,6 +71,8 @@ export default {
 		GotoNextWord() {
 			this.index++
 			this.showingAnswer = false
+
+			this.$refs.Timer.ResetTime()
 
 			if (this.index >= this.quizQueue.length) {
 				this.$router.push("result")
