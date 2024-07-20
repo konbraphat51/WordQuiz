@@ -1,6 +1,8 @@
 <template>
-    <div id="Timer">
-        {{ time }}
+    <div class="Timer">
+        <div class="TimerBox">
+            {{ time }}
+       </div>
     </div>
 </template>
 
@@ -34,3 +36,21 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+.Timer {
+    display: flex;
+    justify-content: center;
+}
+
+.TimerBox {
+    font-size: 2em;
+    text-align: center;
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 10px;
+    background-color: rgb(223, 251, 253);
+    width: 7rem;
+}
+</style>
