@@ -1,6 +1,6 @@
 <template>
     <div class="Timer">
-        <div class="TimerBox">
+        <div class="TimerBox" ref="TimerBox">
             {{ time }}
        </div>
     </div>
@@ -14,6 +14,7 @@ export default {
             time: "",
             timeStart: 0,
             timer: null,
+            danger: false
         }
     },
     mounted() {
@@ -32,8 +33,23 @@ export default {
             const diff = now - this.timeStart
             const seconds = diff / 1000
             this.time = seconds.toFixed(2)
+
+            if (seconds >= 3) {
+                this.danger = true
+            } else {
+                this.danger = false
+            }
         },
     },
+    watch: {
+        danger(newValue) {
+            if (newValue) {
+                this.$refs.TimerBox.style.backgroundColor = "#ffa099"
+            } else {
+                this.$refs.TimerBox.style.backgroundColor = "#dffbfd"
+            }
+        }
+    }
 }
 </script>
 
@@ -50,7 +66,7 @@ export default {
     border-width: 1px;
     border-style: solid;
     border-radius: 10px;
-    background-color: rgb(223, 251, 253);
+    background-color: #dffbfd;
     width: 7rem;
 }
 </style>
