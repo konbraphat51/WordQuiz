@@ -1,6 +1,8 @@
 <template>
 	<div id="page" ref="page">
 		<h1>Quiz</h1>
+		<Timer />
+
 		<div id="WordCurrent">
 			{{ currentWord }}
 		</div>
@@ -19,6 +21,11 @@
 <script>
 export default {
 	name: "QuizPage",
+	components: {
+		Timer: Vue.defineAsyncComponent(() =>
+				loadModule("src/components/Timer.vue", options),
+			), 
+	},
 	data() {
 		return {
 			quizQueue: [],
