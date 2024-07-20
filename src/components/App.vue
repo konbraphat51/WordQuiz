@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<button @click="$router.push('/')">reset</button>
+		<button @click="Reset">reset</button>
 
 		<LanguageSelection />
 
@@ -24,6 +24,10 @@ export default Vue.defineComponent({
 	},
 	methods: {
 		Reset() {
+			if (!window.confirm("Are you sure to reset?")) {
+				return
+			}
+
 			this.$router.push("/")
 		},
 	},
